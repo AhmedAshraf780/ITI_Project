@@ -1,0 +1,72 @@
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: #f8f8f8;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.watchlist-link {
+  text-decoration: none;
+  color: #ffcc00;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.watchlist-link:hover {
+  color: #e6b800;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background: #ffcc00;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #e6b800;
+}
+
+.hero-text {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  color: #222;
+}
+
+.hero-text p {
+  font-size: 1.1rem;
+  color: #666;
+}

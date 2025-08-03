@@ -1,0 +1,14 @@
+<div class="search-container">
+  <h2 *ngIf="query">Search Results for: {{ query }}</h2>
+
+  <div class="movie-grid" *ngIf="results.length > 0">
+    <div *ngFor="let movie of results" class="movie-card">
+      <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
+      <h4>{{ movie.title }}</h4>
+      <p class="rating">{{ movie.vote_average | number:'1.1-1' }}</p>
+      <p class="date">{{ movie.release_date }}</p>
+    </div>
+  </div>
+
+  <p *ngIf="results.length === 0 && query">No results found for "{{ query }}"</p>
+</div>

@@ -1,0 +1,77 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+.home-container {
+  padding: 20px;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.movie-card {
+  width: 100%;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.movie-card:hover {
+  transform: scale(1.03);
+}
+
+.poster {
+  position: relative;
+}
+
+.poster img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.rating-circle {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: #f39c12;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.movie-info {
+  padding-top: 10px;
+}
+
+.movie-info h4 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.movie-info .date {
+  font-size: 13px;
+  color: #777;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.icons i {
+  cursor: pointer;
+  color: #333;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.icons i.fa-heart:hover {
+  color: red;
+}

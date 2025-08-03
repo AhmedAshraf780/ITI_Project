@@ -1,0 +1,18 @@
+<nav class="nav-container">
+  <span class="app-title">Movie App</span>
+  <div>
+    <a routerLink="/watchlist" class="watchlist-link">Watchlist ({{ favouritesService.favourites.length }})</a>
+  </div>
+</nav>
+
+<div class="hero-text">
+  <h1>Welcome to our movie app</h1>
+  <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+</div>
+
+<div class="search-bar">
+  <input type="text" [(ngModel)]="searchQuery" placeholder="Search for movies..." (keyup.enter)="onSearch()" />
+  <button (click)="onSearch()">Search</button>
+</div>
+
+<router-outlet></router-outlet>
