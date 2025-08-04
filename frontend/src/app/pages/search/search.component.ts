@@ -26,7 +26,7 @@ export class SearchComponent implements OnInit {
       this.query = params['q'] || '';
       if (this.query.trim()) {
         this.tmdbService.searchMovie(this.query.trim()).subscribe((res: any) => {
-          this.results = res.results;
+          this.results = res;
         });
       }
     });
@@ -45,7 +45,7 @@ export class SearchComponent implements OnInit {
       });
     } else {
       this.tmdbService.searchMovie(trimmedQuery).subscribe((res: any) => {
-        this.results = res.results;
+        this.results = res;
       });
     }
   }

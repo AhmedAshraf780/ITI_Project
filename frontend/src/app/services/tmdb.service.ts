@@ -10,11 +10,15 @@ export class TmdbService {
 
   constructor(private http: HttpClient) {}
 
+  // getNowPlaying() {
+  //   return this.http.get(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&language=en-US`);
+  // }
+
   getNowPlaying() {
-    return this.http.get(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&language=en-US`);
+  return this.http.get('http://localhost:3000/api/movies');
   }
 
   searchMovie(query: string) {
-    return this.http.get(`${this.baseUrl}/search/movie?api_key=${this.apiKey}&language=en-US&query=${query}`);
+    return this.http.get(`http://localhost:3000/api/movies/search?q=${query}`);
   }
 }

@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.tmdbService.getNowPlaying().subscribe((res: any) => {
-      this.nowPlaying = res.results;
+      this.nowPlaying = res;
     });
   }
 
