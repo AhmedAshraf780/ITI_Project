@@ -3,70 +3,92 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: #f8f8f8;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
+  background-color: #f5f7fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 5px 5px 0 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .app-title {
   font-size: 24px;
-  font-weight: bold;
-  color: #333;
+  font-weight: 600;
+  color: #2c3e50;
 }
 
 .watchlist-link {
-  text-decoration: none;
-  color: #ffcc00;
+  cursor: pointer;
   font-size: 16px;
-  font-weight: 500;
+  color: #34495e;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
 }
 
 .watchlist-link:hover {
-  color: #e6b800;
+  color: #1abc9c;
+}
+
+.hero-section {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.hero-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ecf0f1;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  width: 100%;
+}
+
+.hero-box h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.hero-box p {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-bottom: 20px;
 }
 
 .search-bar {
   display: flex;
-  margin-bottom: 20px;
-  width: 100%;
+  justify-content: center;
+  gap: 10px;
 }
 
 .search-bar input {
-  flex: 1;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px 0 0 4px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  width: 300px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #1abc9c;
   outline: none;
 }
 
 .search-bar button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 1px solid #ddd;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  background: #ffcc00;
+  background-color: #1abc9c;
   color: #fff;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .search-bar button:hover {
-  background: #e6b800;
-}
-
-.hero-text {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  padding-left: 30px;
-}
-
-.hero-text h1 {
-  font-size: 2.5rem;
-  color: #222;
-}
-
-.hero-text p {
-  font-size: 1.1rem;
-  color: #666;
+  background-color: #16a085;
 }

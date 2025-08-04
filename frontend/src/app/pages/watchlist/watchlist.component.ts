@@ -10,5 +10,7 @@ import { FavouritesService } from '../../services/favourites.service';
   styleUrls: ['./watchlist.component.css']
 })
 export class WatchlistComponent {
-  constructor(public favouritesService: FavouritesService) {}
+  constructor(public favouritesService: FavouritesService) {
+    console.log('Watchlist loaded, favourites:', this.favouritesService.favourites); // فحص البيانات
+  }
 }

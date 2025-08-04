@@ -22,4 +22,14 @@ export class AppComponent {
       this.router.navigate(['/search'], { queryParams: { q: this.searchQuery } });
     }
   }
+
+  checkNavigation(event: Event) {
+    event.preventDefault();
+    console.log('Trying to navigate to Watchlist');
+    this.router.navigate(['/watchlist']).then(success => {
+      console.log('Navigation success:', success);
+    }).catch(err => {
+      console.error('Navigation error:', err);
+    });
+  }
 }
