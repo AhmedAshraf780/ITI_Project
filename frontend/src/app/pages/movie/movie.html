@@ -14,7 +14,9 @@
         <button class="watch-btn">🎬 Watch Now</button>
         <button class="download-btn">⬇️ Download</button>
         <button class="watchlist-btn" (click)="addToWatchlist(movie, watchlistIcon, $event)">
-          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart"></i>
+
+      <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart"
+          [ngStyle]="{ color: isInFav(movie.id) ? 'red' : 'white' }"></i>
           Add to Watchlist
         </button>
       </div>

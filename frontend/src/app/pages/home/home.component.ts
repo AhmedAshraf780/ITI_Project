@@ -1,42 +1,62 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TmdbService } from '../../services/tmdb.service';
-import { FavouritesService } from '../../services/favourites.service';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { TmdbService } from "../../services/tmdb.service";
+import { FavouritesService } from "../../services/favourites.service";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-home',
+  selector: "app-home",
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.css"],
 })
 export class HomeComponent implements OnInit {
   nowPlaying: any[] = [];
+  currentPage: number = 1;
+  totalPages: number = 5;
 
   constructor(
     private tmdbService: TmdbService,
     private favouritesService: FavouritesService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
-    this.tmdbService.getNowPlaying().subscribe((res: any) => {
-      this.nowPlaying = res;
-    });
+    this.getMovies(this.currentPage)
+  }
+  getMovies(page:number){
+    this.tmdbService.getNowPlaying(page).subscribe((res:any)=>{
+      this.nowPlaying = res.data
+      this.totalPages = res.totalPages
+    })
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.getMovies(this.currentPage);
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.getMovies(this.currentPage);
+    }
   }
 
   addToWatchlist(movie: any, icon: HTMLElement, event: MouseEvent) {
     event.stopPropagation();
     const isIn = this.favouritesService.favourites.some(
-      (fav) => fav.id === movie.id
+      (fav) => fav.id === movie.id,
     );
     if (!isIn) {
       this.favouritesService.favourites.push(movie);
       //icon.style.color = '#1abc9c';  //now home component.html is using [style.color] binding
     } else {
       const index = this.favouritesService.favourites.findIndex(
-        (fav) => fav.id === movie.id
+        (fav) => fav.id === movie.id,
       );
       this.favouritesService.favourites.splice(index, 1);
       //icon.style.color = '#34495e';

@@ -14,8 +14,8 @@ export class TmdbService {
   //   return this.http.get(`${this.baseUrl}/movie/now_playing?api_key=${this.apiKey}&language=en-US`);
   // }
 
-  getNowPlaying() {
-  return this.http.get('http://localhost:3000/api/movies');
+  getNowPlaying(page:number) {
+  return this.http.get(`http://localhost:3000/api/movies?page=${page}&limit=5`);
   }
 
   searchMovie(query: string) {

@@ -3,19 +3,33 @@ const router = express.Router();
 const Movie = require("./movieModel");
 
 // Get all movies
-router.get("/", (req, res) => {
-	Movie.find({})
-		.then((movies) => {
-			//console.log(movies);
-			res.json(movies);
-		})
-		.catch((error) => {
-			res.status(500).json({
-				success: false,
-				message: "Error fetching movies",
-				error: error.message,
-			});
+router.get("/", async (req, res) => {
+	try {
+		const page = parseInt(req.query.page) || 1;
+		const limit = parseInt(req.query.limit) || 10;
+
+		const skip = (page - 1) * limit;
+
+		const [movies, total] = await Promise.all([
+			Movie.find().skip(skip).limit(limit),
+			Movie.countDocuments()
+		]);
+
+		res.json({
+			success: true,
+			data: movies,
+			page,
+			limit,
+			totalPages: Math.ceil(total / limit),
+			totalResults: total
 		});
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Error fetching movies",
+			error: error.message,
+		});
+	}
 });
 
 router.get("/search", (req, res) => {

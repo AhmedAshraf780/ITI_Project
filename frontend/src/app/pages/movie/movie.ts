@@ -53,4 +53,8 @@ export class Movie {
       icon.style.color = "white";
     }
   }
+
+  isInFav(id:any):boolean{
+    return this.favouritesService.favourites.some(fav => id === this.movie.id);
+  }
 }
