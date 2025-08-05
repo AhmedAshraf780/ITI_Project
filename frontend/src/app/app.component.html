@@ -1,18 +1,14 @@
 <!-- Navbar -->
-<!-- Navbar -->
-<nav class="nav-container">
-  <!-- App logo/home -->
-  <a  class="app-title"
-      href="/"
-      style="text-decoration:none;">
-    <i class="fas fa-film"></i> <span style="margin-left:6px">Movie App</span>
+<nav class="nav-glass">
+  <a class="brand" href="/">
+    <i class="fas fa-film"></i>
+    <span>Movie App</span>
   </a>
 
-  <!-- Watchlist icon -->
-  <a  routerLink="/watchlist"
-      class="watchlist-link"
-      (click)="checkNavigation($event)"
-      title="My Watchlist">
+  <a routerLink="/watchlist"
+     class="watchlist-icon"
+     (click)="checkNavigation($event)"
+     title="My Watchlist">
     <i class="fas fa-heart"></i>
     <span class="badge">{{ favouritesService.favourites.length }}</span>
   </a>

@@ -11,17 +11,6 @@
   width: 100%;
 }
 
-.badge {
-  background: #e74c3c;
-  color: #fff;
-  font-size: 11px;
-  border-radius: 50%;
-  padding: 2px 6px;
-  position: relative;
-  top: -8px;
-  left: -6px;
-}
-
 .app-title {
   font-size: 24px;
   font-weight: 600;
@@ -49,7 +38,7 @@
 .hero-box {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #ecf0f1;
+  background-color: rgb(248, 205, 12);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -102,4 +91,55 @@
 
 .search-bar button:hover {
   background-color: #16a085;
+}
+
+/* glass-morphic yellow nav */
+.nav-glass {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  background: rgb(248, 205, 12);   /* yellow tint */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s ease;
+}
+.brand:hover { transform: scale(1.05); }
+
+.watchlist-icon {
+  position: relative;
+  color: #111;
+  font-size: 1.3rem;
+  transition: transform 0.2s;
+}
+.watchlist-icon:hover { transform: scale(1.15); }
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #e74c3c;
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
