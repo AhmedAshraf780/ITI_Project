@@ -1,0 +1,23 @@
+<div class="home-container">
+  <div class="movie-detail">
+    <div class="poster">
+      <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="{{ movie.title }}" />
+      <div class="rating-circle">{{ movie.vote_average | number: '1.1-1' }}</div>
+    </div>
+
+    <div class="movie-info">
+      <h2>{{ movie.title }}</h2>
+      <p class="date">Release Date: {{ movie.release_date }}</p>
+      <p class="overview">{{ movie.overview }}</p>
+
+      <div class="action-buttons">
+        <button class="watch-btn">🎬 Watch Now</button>
+        <button class="download-btn">⬇️ Download</button>
+        <button class="watchlist-btn" (click)="addToWatchlist(movie, watchlistIcon, $event)">
+          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart"></i>
+          Add to Watchlist
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

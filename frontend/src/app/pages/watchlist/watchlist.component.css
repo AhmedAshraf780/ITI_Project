@@ -1,3 +1,4 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 .watchlist-container {
   padding: 20px;
   max-width: 1200px;
@@ -94,3 +95,20 @@ h2 {
     height: 200px;
   }
 }
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icons i {
+  font-size: 18px;
+  cursor: pointer;
+  color: #1abc9c;
+}
+
+/* .icons i:hover { */
+/*   color: #1abc9c; */
+/* } */
+/**/
+

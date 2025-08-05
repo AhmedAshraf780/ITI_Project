@@ -1,8 +1,9 @@
+
 <div class="home-container">
   <h2>Now Playing</h2>
 
   <div class="movie-grid">
-    <div class="movie-card" *ngFor="let movie of nowPlaying">
+    <div class="movie-card" *ngFor="let movie of nowPlaying" (click)="handleMovie(movie.id)">
       <div class="poster">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Movie Poster" />
         <div class="rating-circle">{{ movie.vote_average | number: '1.1-1' }}</div>
@@ -12,8 +13,7 @@
         <h4>{{ movie.title }}</h4>
         <p class="date">{{ movie.release_date }}</p>
         <div class="icons">
-          <i class="fa fa-heart" (click)="addToWatchlist(movie)"></i>
-          <i class="fa fa-ellipsis-v"></i>
+          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart" (click)="addToWatchlist(movie,watchlistIcon,$event)"></i>
         </div>
       </div>
     </div>

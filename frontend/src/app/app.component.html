@@ -1,6 +1,6 @@
 <!-- Navbar -->
 <nav class="nav-container">
-  <span class="app-title" routerLink="/">Movie App</span>
+  <a class="app-title" href='/' style="text-decoration:none;">Movie App</a>
   <div>
     <a routerLink="/watchlist" class="watchlist-link" (click)="checkNavigation($event)">
       Watchlist ({{ favouritesService.favourites.length }})

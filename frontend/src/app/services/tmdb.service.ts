@@ -21,4 +21,8 @@ export class TmdbService {
   searchMovie(query: string) {
     return this.http.get(`http://localhost:3000/api/movies/search?q=${query}`);
   }
+
+  getMovie(id:any){
+    return this.http.get(`http://localhost:3000/api/movies/${id}`)
+  }
 }

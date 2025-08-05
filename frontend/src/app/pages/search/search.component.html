@@ -2,7 +2,7 @@
   <h2 *ngIf="query">Search Results for: {{ query }}</h2>
 
   <div class="movie-grid" *ngIf="results.length > 0">
-    <div *ngFor="let movie of results" class="movie-card">
+    <div *ngFor="let movie of results" class="movie-card" (click)="handleMovie(movie.id)">
       <div class="poster">
         <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" [alt]="movie.title" />
         <div class="rating-circle">
@@ -12,7 +12,13 @@
       <div class="movie-info">
         <h4>{{ movie.title }}</h4>
         <div class="date">{{ movie.release_date }}</div>
+
       </div>
+        <div class="icons">
+          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart" (click)="addToWatchList(movie,watchlistIcon,$event)"></i>
+        </div>
+
+
     </div>
   </div>
 
