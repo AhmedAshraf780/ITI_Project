@@ -15,7 +15,7 @@ import { FavouritesService } from "../../services/favourites.service";
 export class Movie {
   movie?: any;
   id: string | null = null;
-  isFav:boolean = false;
+  isFav: boolean = false;
 
   constructor(
     private tmdb: TmdbService,
@@ -25,16 +25,19 @@ export class Movie {
   ) {}
 
   ngOnInit() {
-    this.isFav = this.favouritesService.favourites.some((fav) => fav.id === this.movie.id)
     this.id = this.route.snapshot.paramMap.get("id");
     if (this.id) {
       this.getMovie(this.id);
     }
   }
 
-  getMovie(id:string) {
+  getMovie(id: string) {
     this.tmdb.getMovie(id).subscribe((res: any) => {
       this.movie = res.data;
+
+      this.isFav = this.favouritesService.favourites.some((fav) =>
+        fav.id === this.movie.id
+      );
     });
   }
   addToWatchlist(movie: any, icon: HTMLElement, event: MouseEvent) {
