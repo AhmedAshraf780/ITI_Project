@@ -1,5 +1,6 @@
+<!-- Navbar -->
 <nav class="nav-container">
-  <span class="app-title">Movie App</span>
+  <span class="app-title" routerLink="/">Movie App</span>
   <div>
     <a routerLink="/watchlist" class="watchlist-link" (click)="checkNavigation($event)">
       Watchlist ({{ favouritesService.favourites.length }})
@@ -7,7 +8,8 @@
   </div>
 </nav>
 
-<div class="hero-section">
+<!-- Hero Section -->
+<div class="hero-section" *ngIf="currentRoute !== '/watchlist'">
   <div class="hero-box">
     <h1>Welcome to our movie app</h1>
     <p>Millions of movies, TV shows and people to discover. Explore now.</p>
@@ -22,4 +24,5 @@
   </div>
 </div>
 
+<!-- Router Outlet -->
 <router-outlet></router-outlet>

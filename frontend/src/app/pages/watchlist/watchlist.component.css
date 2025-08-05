@@ -59,6 +59,33 @@ h2 {
   margin-bottom: 10px;
 }
 
+.empty-message {
+  font-size: 1.5rem;
+  margin-top: 20px;
+  color: #53bba6;
+  text-align: center;
+}
+
+.go-home-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #1abc9c;
+  color: black;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: background-color 0.3s ease;
+}
+
+.go-home-button:hover {
+  background-color: #bfeae0;
+}
+
+
 @media (max-width: 600px) {
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));

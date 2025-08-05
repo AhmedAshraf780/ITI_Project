@@ -8,5 +8,9 @@
       <p class="date">{{ movie.release_date }}</p>
     </div>
   </div>
-  <p *ngIf="favouritesService.favourites.length === 0">No favourites added yet.</p>
-</div>
+<p *ngIf="favouritesService.favourites.length === 0" class="empty-message">
+  No movies in watchlist.
+</p>
+<button *ngIf="favouritesService.favourites.length === 0" routerLink="/" class="go-home-button">
+  Back to Home
+</button></div>
