@@ -1,11 +1,21 @@
 <!-- Navbar -->
+<!-- Navbar -->
 <nav class="nav-container">
-  <a class="app-title" href='/' style="text-decoration:none;">Movie App</a>
-  <div>
-    <a routerLink="/watchlist" class="watchlist-link" (click)="checkNavigation($event)">
-      Watchlist ({{ favouritesService.favourites.length }})
-    </a>
-  </div>
+  <!-- App logo/home -->
+  <a  class="app-title"
+      href="/"
+      style="text-decoration:none;">
+    <i class="fas fa-film"></i> <span style="margin-left:6px">Movie App</span>
+  </a>
+
+  <!-- Watchlist icon -->
+  <a  routerLink="/watchlist"
+      class="watchlist-link"
+      (click)="checkNavigation($event)"
+      title="My Watchlist">
+    <i class="fas fa-heart"></i>
+    <span class="badge">{{ favouritesService.favourites.length }}</span>
+  </a>
 </nav>
 
 <!-- Hero Section -->

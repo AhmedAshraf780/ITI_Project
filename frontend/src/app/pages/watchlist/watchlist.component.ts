@@ -16,10 +16,7 @@ export class WatchlistComponent {
     this.router.navigate([`movies/movie/${id}`])
   }
   removeWatchList(movie: any, icon: HTMLElement) {
-      const index = this.favouritesService.favourites.findIndex((fav) =>
-        fav.id === movie.id
-      );
-      this.favouritesService.favourites.splice(index, 1);
-      icon.style.color = "#34495e";
+      this.favouritesService.favourites = this.favouritesService.favourites.filter(f => f.id !== movie.id);
+    (this.favouritesService as any).saveToStorage();
   }
 }

@@ -13,7 +13,11 @@
         <h4>{{ movie.title }}</h4>
         <p class="date">{{ movie.release_date }}</p>
         <div class="icons">
-          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart" (click)="addToWatchlist(movie,watchlistIcon,$event)"></i>
+          <i #watchlistIcon id="icon-{{ movie.id }}" 
+          class="fa fa-heart"
+          [style.color]="isInWatchlist(movie.id) ? '#1abc9c' : '#34495e'"
+          (click)="addToWatchlist(movie,watchlistIcon,$event)">
+        </i>
         </div>
       </div>
     </div>

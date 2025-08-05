@@ -4,13 +4,12 @@ import { TmdbService } from '../../services/tmdb.service';
 import { FavouritesService } from '../../services/favourites.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   nowPlaying: any[] = [];
@@ -18,7 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private tmdbService: TmdbService,
     private favouritesService: FavouritesService,
-    private router:Router,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -27,21 +26,28 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  addToWatchlist(movie: any,icon:HTMLElement,event:MouseEvent) {
+  addToWatchlist(movie: any, icon: HTMLElement, event: MouseEvent) {
     event.stopPropagation();
-    if (!this.favouritesService.favourites.some(fav => fav.id === movie.id)) {
+    const isIn = this.favouritesService.favourites.some(
+      (fav) => fav.id === movie.id
+    );
+    if (!isIn) {
       this.favouritesService.favourites.push(movie);
-      icon.style.color = '#1abc9c';
+      //icon.style.color = '#1abc9c';  //now home component.html is using [style.color] binding
+    } else {
+      const index = this.favouritesService.favourites.findIndex(
+        (fav) => fav.id === movie.id
+      );
+      this.favouritesService.favourites.splice(index, 1);
+      //icon.style.color = '#34495e';
     }
-    else{
-      const index = this.favouritesService.favourites.findIndex(fav => fav.id === movie.id)
-      this.favouritesService.favourites.splice(index,1)
-      icon.style.color ='#34495e';
-    }
+    (this.favouritesService as any).saveToStorage();
   }
 
-  handleMovie(id:any){
-    this.router.navigate([`movies/movie/${id}`])
+  handleMovie(id: any) {
+    this.router.navigate([`movies/movie/${id}`]);
   }
-
+  isInWatchlist(movieId: number): boolean {
+    return this.favouritesService.favourites.some((f) => f.id === movieId);
+  }
 }
