@@ -15,7 +15,7 @@ export class TmdbService {
   // }
 
   getNowPlaying(page:number) {
-  return this.http.get(`http://localhost:3000/api/movies?page=${page}&limit=5`);
+  return this.http.get(`http://localhost:3000/api/movies?page=${page}&limit=8`);
   }
 
   searchMovie(query: string) {

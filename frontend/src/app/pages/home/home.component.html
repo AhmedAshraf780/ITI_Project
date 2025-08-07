@@ -2,31 +2,38 @@
   <h1>Now Playing</h1>
 
   <div class="movie-grid">
-    <div class="movie-card" *ngFor="let movie of nowPlaying" (click)="handleMovie(movie.id)">
+    @for (movie of nowPlaying; track $index) {
+    <div class="movie-card" (click)="handleMovie(movie.id)">
       <div class="poster">
         <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" alt="Movie Poster" />
-        <div class="rating-circle">{{ movie.vote_average | number: '1.1-1' }}
-
+        <div class="rating-circle">
+          {{ movie.vote_average | number : "1.1-1" }}
         </div>
       </div>
 
       <div class="movie-info">
         <h4>{{ movie.title }}</h4>
-        <p class="date">{{ movie.release_date  | date: 'MMMd,yyyy' }}</p>
+        <p class="date">{{ movie.release_date | date : "MMMd,yyyy" }}</p>
         <div class="icons">
-          <i #watchlistIcon id="icon-{{ movie.id }}"
-          class="fa fa-heart"
-          [style.color]="isInWatchlist(movie.id) ? '#f8cd0c' : '#34495e'"
-          (click)="addToWatchlist(movie,watchlistIcon,$event)">
-        </i>
+          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart"
+            [style.color]="isInWatchlist(movie.id) ? '#f8cd0c' : '#34495e'"
+            (click)="addToWatchlist(movie, watchlistIcon, $event)">
+          </i>
         </div>
       </div>
     </div>
+    }
   </div>
 
-<div class="pagination-controls">
-  <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
-  <span>Page {{ currentPage }} of {{ totalPages }}</span>
-  <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
-</div>
+
+
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 1">
+      Previous
+    </button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Next
+    </button>
+  </div>
 </div>

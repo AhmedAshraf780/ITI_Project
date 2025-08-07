@@ -1,21 +1,33 @@
 <div class="watchlist-container">
   <h2>Watchlist</h2>
-  <div class="movie-grid" *ngIf="favouritesService.favourites.length > 0">
-    <div *ngFor="let movie of favouritesService.favourites" (click)="handleMovie(movie.id)" class="movie-card">
-      <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
-      <h4>{{ movie.title }}</h4>
-      <p class="rating">{{ movie.vote_average | number:'1.1-1' }}</p>
-      <p class="date">{{ movie.release_date }}</p>
-<div class="icons">
-          <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart" (click)="removeWatchList(movie,watchlistIcon)"></i>
-          <i class="fa fa-ellipsis-v"></i>
+  @if (favouritesService.favourites.length > 0) 
+  {
+    <div class="movie-grid">
+        @for (movie of favouritesService.favourites; track $index) 
+        {
+          <div  (click)="handleMovie(movie.id)" class="movie-card">
+          <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" alt="{{ movie.title }}" />
+          <h4>{{ movie.title }}</h4>
+          <p class="rating">{{ movie.vote_average | number:'1.1-1' }}</p>
+          <p class="date">{{ movie.release_date }}</p>
+          <div class="icons">
+            <i #watchlistIcon id="icon-{{ movie.id }}" class="fa fa-heart"
+              (click)="removeWatchList(movie,watchlistIcon)"></i>
+            <i class="fa fa-ellipsis-v"></i>
+          </div>
         </div>
-
+        }
     </div>
-  </div>
-<p *ngIf="favouritesService.favourites.length === 0" class="empty-message">
-  No movies in watchlist.
-</p>
-<button *ngIf="favouritesService.favourites.length === 0" routerLink="/" class="go-home-button">
-  Back to Home
-</button></div>
+  }
+  @else
+  {
+  <p class="empty-message">
+    No movies in watchlist.
+  </p>
+  }
+
+
+  <button *ngIf="favouritesService.favourites.length === 0" routerLink="/" class="go-home-button">
+    Back to Home
+  </button>
+</div>
